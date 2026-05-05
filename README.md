@@ -11,6 +11,34 @@ and you want a quick sanity check from the menu bar.
 - macOS 13 or newer
 - Swift 5.9 or newer
 
+## Agent Installation
+
+Give the following instructions to a local agent to install EgressBar
+automatically on a Mac:
+
+```text
+Install EgressBar from https://github.com/AmAzing129/EgressBar on this Mac.
+
+Steps:
+1. Verify that Xcode Command Line Tools and Swift are available:
+   `xcode-select -p` and `swift --version`.
+2. Clone the repository to `~/EgressBar` if it is not already present:
+   `git clone https://github.com/AmAzing129/EgressBar.git ~/EgressBar`.
+   If `~/EgressBar` already exists, run `git -C ~/EgressBar pull`.
+3. Build the project:
+   `cd ~/EgressBar && make build`.
+4. Package the macOS app bundle:
+   `cd ~/EgressBar && make package`.
+5. Launch the packaged app:
+   `open ~/EgressBar/.build/EgressBar.app`.
+6. Confirm that `~/EgressBar/.build/EgressBar.app/Contents/MacOS/EgressBar`
+   exists and that EgressBar is visible in the macOS menu bar.
+
+Do not move the app bundle after packaging unless the user asks for a different
+install location. The packaged app is required for the Launch at Login toggle;
+`make run` is only for development.
+```
+
 ## Features
 
 - Menu bar title like `Los Angeles, California, US`
