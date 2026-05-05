@@ -93,7 +93,7 @@ https://ipinfo.io/json
 With a token, EgressBar uses:
 
 ```text
-https://api.ipinfo.io/lookup/me?token=...
+https://ipinfo.io/json?token=...
 ```
 
 You can set the token in Settings. Development builds may also read

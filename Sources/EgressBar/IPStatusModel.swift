@@ -204,7 +204,7 @@ final class IPStatusModel: ObservableObject {
             return URL(string: "https://ipinfo.io/json")!
         }
 
-        var components = URLComponents(string: "https://api.ipinfo.io/lookup/me")!
+        var components = URLComponents(string: "https://ipinfo.io/json")!
         components.queryItems = [
             URLQueryItem(name: "token", value: token)
         ]
