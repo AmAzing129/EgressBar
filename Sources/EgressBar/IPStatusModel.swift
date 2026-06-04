@@ -140,6 +140,7 @@ final class IPStatusModel: ObservableObject {
             isNetworkAvailable = true
             lastUpdated = Date()
         } catch {
+            clearCurrentInfo()
             errorMessage = readableError(error)
             if isNetworkUnavailable(error) {
                 isNetworkAvailable = false
@@ -245,6 +246,7 @@ final class IPStatusModel: ObservableObject {
                     }
                     await self.refresh()
                 } else {
+                    self.clearCurrentInfo()
                     self.isNetworkAvailable = false
                     self.errorMessage = "Network unavailable"
                 }
@@ -262,6 +264,10 @@ final class IPStatusModel: ObservableObject {
         guard (200..<300).contains(httpResponse.statusCode) else {
             throw IPStatusError.httpStatus(httpResponse.statusCode)
         }
+    }
+
+    private func clearCurrentInfo() {
+        info = .empty
     }
 
     private func readableError(_ error: Error) -> String {
